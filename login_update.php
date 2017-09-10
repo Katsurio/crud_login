@@ -22,13 +22,12 @@
             </div>
 
             <div class="form-group">
-
                 <select name="id" id="">
                     <?php ShowALLData(); ?>
                 </select>
             </div>
 
-            <input class="btn btn-warning" type="submit" name="submit" value="UPDATE">
-        </form>
+            <input class="btn btn-warning col-sm-10 offset-sm-1" type="submit" name="submit" value="UPDATE">
+        </form><br>
     </div>
 <?php include "includes/footer.php"; ?>
