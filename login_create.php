@@ -3,7 +3,9 @@
 <?php CreateRow(); ?>
 
 <?php include "includes/header.php"; ?>
-<div class="container">
+<?php include "includes/nav.php"; ?>
+
+<div class="container vertical-center">
     <div class="offset-sm-3 col-sm-6"
          style="background-color: white;
                 border: 3px solid black;
@@ -19,7 +21,7 @@
                 <label for="password">Password</label>
                 <input type="password" name="password" class="form-control">
             </div>
-            <input class="btn btn-warning col-sm-10 offset-sm-1" type="submit" name="submit" value="CREATE">
+            <input class="btn btn-info col-sm-10 offset-sm-1" type="submit" name="submit" value="CREATE">
         </form><br>
     </div>
 <?php include "includes/footer.php"; ?>

@@ -3,7 +3,9 @@
 <?php UpdateRow(); ?>
 
 <?php include "includes/header.php"; ?>
-<div class="container">
+<?php include "includes/nav.php"; ?>
+
+<div class="container vertical-center">
     <div class="col-sm-6 offset-sm-3"
          style="background-color: white;
                 border: 3px solid black;
