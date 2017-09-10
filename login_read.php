@@ -2,7 +2,9 @@
 <?php include "functions.php"; ?>
 
 <?php include "includes/header.php"; ?>
-<div class="container">
+<?php include "includes/nav.php"; ?>
+
+<div class="container vertical-center">
 
     <div class="offset-sm-3 col-sm-6"
          style="background-color: white;

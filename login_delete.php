@@ -3,7 +3,9 @@
 <?php DeleteRow(); ?>
 
 <?php include "includes/header.php"; ?>
-<div class="container">
+<?php include "includes/nav.php"; ?>
+
+<div class="container vertical-center">
     <div class="col-sm-6 offset-sm-3"
          style="background-color: white;
          border: 3px solid black;
@@ -29,7 +31,7 @@
                 </select>
             </div>
 
-            <input class="btn btn-warning col-sm-10 offset-sm-1" type="submit" name="submit" value="DELETE">
+            <input class="btn btn-danger col-sm-10 offset-sm-1" type="submit" name="submit" value="DELETE">
         </form><br>
     </div>
 <?php include "includes/footer.php"; ?>
