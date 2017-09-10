@@ -68,11 +68,7 @@ function ReadData()
     }
 
     while ($row = mysqli_fetch_assoc($result)) {
-        ?>
-        <pre>
-            <?php print_r($row); ?>
-        </pre>
-        <?php
+        print_r($row);
     }
 }
 

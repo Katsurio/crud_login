@@ -4,7 +4,11 @@
 
 <?php include "includes/header.php"; ?>
 <div class="container">
-    <div class="col-sm-6">
+    <div class="col-sm-6 offset-sm-3"
+         style="background-color: white;
+         border: 3px solid black;
+         box-shadow: 5px 5px 5px;"">
+
         <h1 class="text-center">Delete</h1>
         <form action="login_delete.php" method="post">
 
@@ -25,7 +29,7 @@
                 </select>
             </div>
 
-            <input class="btn btn-danger" type="submit" name="submit" value="DELETE">
+            <input class="btn btn-warning" type="submit" name="submit" value="DELETE">
         </form>
     </div>
 <?php include "includes/footer.php"; ?>
