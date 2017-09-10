@@ -1,12 +1,12 @@
 <?php include "db.php"; ?>
 <?php include "functions.php"; ?>
-<?php UpdateRow(); ?>
+<?php DeleteRow(); ?>
 
 <?php include "includes/header.php"; ?>
 <div class="container">
     <div class="col-sm-6">
-        <h1 class="text-center">Update</h1>
-        <form action="login_update.php" method="post">
+        <h1 class="text-center">Delete</h1>
+        <form action="login_delete.php" method="post">
 
             <div class="form-group">
                 <label for="username">Username</label>
@@ -25,7 +25,7 @@
                 </select>
             </div>
 
-            <input class="btn btn-warning" type="submit" name="submit" value="UPDATE">
+            <input class="btn btn-danger" type="submit" name="submit" value="DELETE">
         </form>
     </div>
 <?php include "includes/footer.php"; ?>

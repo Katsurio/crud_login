@@ -16,47 +16,47 @@ function ShowALLData()
     }
 }
 
-function UpdateData()
+function UpdateRow()
 {
-    global $conn;
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-    $id = $_POST['id'];
+    if (isset($_POST['submit'])) {
+        global $conn;
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+        $id = $_POST['id'];
 
-    $query = "UPDATE users SET ";
-    $query .= "username = '$username', ";
-    $query .= "password = '$password' ";
-    $query .= "WHERE id = $id ";
+        $query = "UPDATE users SET ";
+        $query .= "username = '$username', ";
+        $query .= "password = '$password' ";
+        $query .= "WHERE id = $id ";
 
-    $result = mysqli_query($conn, $query);
-    if (!$result) {
-
-        die("Query FAILED" . mysqli_error($conn));
-
+        $result = mysqli_query($conn, $query);
+        if (!$result) {
+            die("Query FAILED" . mysqli_error($conn));
+        } else {
+            echo "Record updated.";
+        }
     }
-
-
 }
 
-function CreateData()
+function CreateRow()
 {
-    global $conn;
-    $username = $_POST['username'];
-    $password = $_POST['password'];
+    if (isset($_POST['submit'])) {
+        global $conn;
+        $username = $_POST['username'];
+        $password = $_POST['password'];
 
-    $query = "INSERT INTO users(username, password) ";
-    $query .= "VALUES ('$username', '$password')";
+        $query = "INSERT INTO users(username, password) ";
+        $query .= "VALUES ('$username', '$password')";
 
-    $result = mysqli_query($conn, $query);
-
-    if (!$result) {
-        die('Query FAILED: ' . mysqli_error());
-    }
-
-    if (!$username || !$password) {
-        echo "Fields cannot be blank.";
+        $result = mysqli_query($conn, $query);
+        if (!$result) {
+            die('Query FAILED: ' . mysqli_error());
+        } else {
+            echo "Record created.";
+        }
     }
 }
+
 
 function ReadData()
 {
@@ -69,12 +69,30 @@ function ReadData()
 
     while ($row = mysqli_fetch_assoc($result)) {
         ?>
-
         <pre>
-                <?php print_r($row); ?>
-            </pre>
-
+            <?php print_r($row); ?>
+        </pre>
         <?php
+    }
+}
+
+function DeleteRow()
+{
+    if (isset($_POST['submit'])) {
+        global $conn;
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+        $id = $_POST['id'];
+
+        $query = "DELETE FROM users ";
+        $query .= "WHERE id = $id ";
+
+        $result = mysqli_query($conn, $query);
+        if (!$result) {
+            die("Query FAILED" . mysqli_error($conn));
+        } else {
+            echo "Record deleted.";
+        }
     }
 }
 
