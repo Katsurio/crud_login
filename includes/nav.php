@@ -6,17 +6,17 @@
     <a class="navbar-brand" href="#">C.R.U.D.</a>
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="login_create.php">Create<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="login_read.php">Read</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link disabled" href="login_update.php">Update</a>
+                <a class="nav-link" href="login_update.php">Update</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link disabled" href="login_delete.php">Delete</a>
+                <a class="nav-link" href="login_delete.php">Delete</a>
             </li>
         </ul>
         <form class="form-inline mt-2 mt-md-0">
