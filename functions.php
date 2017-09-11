@@ -75,11 +75,11 @@ function ReadData()
         $username = $row['username'];
         $password = $row['password'];
 
-        echo "<tr>";
-        echo "<td>" . $id . "</td>";
-        echo "<td>" . $username . "</td>";
-        echo "<td>" . $password . "</td>";
-        echo "</tr>";
+        echo "<tr>
+                <td>$id</td>
+                <td>$username</td>
+                <td>$password</td>
+             </tr>";
     }
     mysqli_close($conn);
 }
@@ -99,9 +99,10 @@ function DeleteRow()
         if (!$result) {
             die("Query FAILED" . mysqli_error($conn));
         } else {
-            echo "Record deleted.";
+            echo "Record deleted . ";
         }
         mysqli_close($conn);
     }
 }
+
 ?>
