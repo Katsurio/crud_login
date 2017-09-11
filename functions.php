@@ -14,6 +14,7 @@ function ShowALLData()
         $id = $row['id'];
         echo "<option value='$id'>$id</option>";
     }
+    mysqli_close($conn);
 }
 
 function UpdateRow()
@@ -35,6 +36,7 @@ function UpdateRow()
         } else {
             echo "Record updated.";
         }
+        mysqli_close($conn);
     }
 }
 
@@ -50,26 +52,36 @@ function CreateRow()
 
         $result = mysqli_query($conn, $query);
         if (!$result) {
-            die('Query FAILED: ' . mysqli_error());
+            die('Query FAILED: ' . mysqli_error($conn));
         } else {
             echo "Record created.";
         }
+        mysqli_close($conn);
     }
 }
-
 
 function ReadData()
 {
     global $conn;
     $query = "SELECT * FROM users";
     $result = mysqli_query($conn, $query);
+
     if (!$result) {
-        die('Query FAILED' . mysqli_error());
+        die('Query FAILED' . mysqli_error($conn));
     }
 
     while ($row = mysqli_fetch_assoc($result)) {
-        print_r($row);
+        $id = $row['id'];
+        $username = $row['username'];
+        $password = $row['password'];
+
+        echo "<tr>";
+        echo "<td>" . $id . "</td>";
+        echo "<td>" . $username . "</td>";
+        echo "<td>" . $password . "</td>";
+        echo "</tr>";
     }
+    mysqli_close($conn);
 }
 
 function DeleteRow()
@@ -77,7 +89,7 @@ function DeleteRow()
     if (isset($_POST['submit'])) {
         global $conn;
         $username = $_POST['username'];
-        $password = $_POST['password'];
+        $password = $_POST['password']; // Not sure if I
         $id = $_POST['id'];
 
         $query = "DELETE FROM users ";
@@ -89,7 +101,7 @@ function DeleteRow()
         } else {
             echo "Record deleted.";
         }
+        mysqli_close($conn);
     }
 }
-
 ?>

@@ -6,10 +6,7 @@
 <?php include "includes/nav.php"; ?>
 
 <div class="container vertical-center">
-    <div class="col-sm-6 offset-sm-3"
-         style="background-color: white;
-         border: 3px solid black;
-         box-shadow: 5px 5px 5px;">
+    <div class="col-sm-6 offset-sm-3" style="background-color: white; border: 3px solid black; box-shadow: 5px 5px 5px;">
 
         <h1 class="text-center">Delete</h1>
         <form action="login_delete.php" method="post">

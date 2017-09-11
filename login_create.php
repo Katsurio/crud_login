@@ -6,10 +6,7 @@
 <?php include "includes/nav.php"; ?>
 
 <div class="container vertical-center">
-    <div class="offset-sm-3 col-sm-6"
-         style="background-color: white;
-                border: 3px solid black;
-                box-shadow: 5px 5px 5px;">
+    <div class="offset-sm-3 col-sm-6" style="background-color: white; border: 3px solid black; box-shadow: 5px 5px 5px;">
 
         <h1 class="text-center">Create</h1>
         <form action="login_create.php" method="post">
