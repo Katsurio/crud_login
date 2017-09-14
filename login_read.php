@@ -6,7 +6,12 @@
 
 <div class="container vertical-center">
 
-    <div class="offset-sm-3 col-sm-6" style="background-color: white; border: 3px solid black; box-shadow: 5px 5px 5px;">
+    <div class="offset-sm-1 col-sm-10"
+         style="background-color: white;
+                border: 3px solid black;
+                box-shadow: 5px 5px 5px;
+
+">
         <h1 class="text-center">Read</h1>
         <table class='col-sm-12' border='1'>
             <thead>

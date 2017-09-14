@@ -1,20 +1,13 @@
 <?php include "db.php"; ?>
 <?php
 
-function ShowALLData()
-{
-    global $conn;
-    $query = "SELECT * FROM users";
-    $result = mysqli_query($conn, $query);
-    if (!$result) {
-        die('Query FAILED' . mysqli_error($conn));
-    }
 
-    while ($row = mysqli_fetch_assoc($result)) {
-        $id = $row['id'];
-        echo "<option value='$id'>$id</option>";
-    }
-    mysqli_close($conn);
+function encryptPassword($pass)
+{
+    $hashFormat = "$2y$10$";
+    $salt = "iusedsomecrazystrings23";
+    $hashF_and_salt = $hashFormat . $salt;
+    return crypt($pass, $hashF_and_salt);
 }
 
 function UpdateRow()
@@ -24,6 +17,11 @@ function UpdateRow()
         $username = $_POST['username'];
         $password = $_POST['password'];
         $id = $_POST['id'];
+
+        $username = mysqli_real_escape_string($conn, $username);
+        $password = mysqli_real_escape_string($conn, $password);
+
+        $password = encryptPassword($password);
 
         $query = "UPDATE users SET ";
         $query .= "username = '$username', ";
@@ -46,6 +44,11 @@ function CreateRow()
         global $conn;
         $username = $_POST['username'];
         $password = $_POST['password'];
+
+        $username = mysqli_real_escape_string($conn, $username);
+        $password = mysqli_real_escape_string($conn, $password);
+
+        $password = encryptPassword($password);
 
         $query = "INSERT INTO users(username, password) ";
         $query .= "VALUES ('$username', '$password')";
@@ -84,12 +87,34 @@ function ReadData()
     mysqli_close($conn);
 }
 
+
+function ShowALLData()
+{
+    global $conn;
+    $query = "SELECT * FROM users";
+    $result = mysqli_query($conn, $query);
+    if (!$result) {
+        die('Query FAILED' . mysqli_error($conn));
+    }
+
+    while ($row = mysqli_fetch_assoc($result)) {
+        $id = $row['id'];
+        echo "<option value='$id'>$id</option>";
+    }
+    mysqli_close($conn);
+}
+
+
 function DeleteRow()
 {
     if (isset($_POST['submit'])) {
         global $conn;
-        $username = $_POST['username'];
-        $password = $_POST['password']; // Not sure if I
+//        $username = $_POST['username'];
+//        $password = $_POST['password'];
+//
+//        $username = mysqli_real_escape_string($conn, $username);
+//        $password = mysqli_real_escape_string($conn, $password);
+
         $id = $_POST['id'];
 
         $query = "DELETE FROM users ";
@@ -100,6 +125,7 @@ function DeleteRow()
             die("Query FAILED" . mysqli_error($conn));
         } else {
             echo "Record deleted . ";
+            header('Location: ' . $_SERVER['REQUEST_URI']);
         }
         mysqli_close($conn);
     }
