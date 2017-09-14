@@ -109,11 +109,11 @@ function DeleteRow()
 {
     if (isset($_POST['submit'])) {
         global $conn;
-//        $username = $_POST['username'];
-//        $password = $_POST['password'];
-//
-//        $username = mysqli_real_escape_string($conn, $username);
-//        $password = mysqli_real_escape_string($conn, $password);
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+
+        $username = mysqli_real_escape_string($conn, $username);
+        $password = mysqli_real_escape_string($conn, $password);
 
         $id = $_POST['id'];
 
@@ -125,7 +125,6 @@ function DeleteRow()
             die("Query FAILED" . mysqli_error($conn));
         } else {
             echo "Record deleted . ";
-            header('Location: ' . $_SERVER['REQUEST_URI']);
         }
         mysqli_close($conn);
     }
