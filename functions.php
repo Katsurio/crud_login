@@ -25,6 +25,9 @@ function UpdateRow()
         $password = $_POST['password'];
         $id = $_POST['id'];
 
+        $username = mysqli_real_escape_string($conn, $username);
+        $password = mysqli_real_escape_string($conn, $password);
+
         $query = "UPDATE users SET ";
         $query .= "username = '$username', ";
         $query .= "password = '$password' ";
@@ -46,6 +49,9 @@ function CreateRow()
         global $conn;
         $username = $_POST['username'];
         $password = $_POST['password'];
+
+        $username = mysqli_real_escape_string($conn, $username);
+        $password = mysqli_real_escape_string($conn, $password);
 
         $query = "INSERT INTO users(username, password) ";
         $query .= "VALUES ('$username', '$password')";
@@ -89,7 +95,11 @@ function DeleteRow()
     if (isset($_POST['submit'])) {
         global $conn;
         $username = $_POST['username'];
-        $password = $_POST['password']; // Not sure if I
+        $password = $_POST['password'];
+
+        $username = mysqli_real_escape_string($conn, $username);
+        $password = mysqli_real_escape_string($conn, $password);
+
         $id = $_POST['id'];
 
         $query = "DELETE FROM users ";
